@@ -8,7 +8,8 @@ pipeline {
     stages {
         stage('Checkout'){
             steps {
-                echo "Checking out..."
+                echo "list all items"
+                sh "ls -la"
             }
         }
         stage('Build') {
