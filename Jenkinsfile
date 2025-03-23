@@ -6,20 +6,20 @@ pipeline {
     }
 
     stages {
-        stage('Checkout'){
+        stage('Delete previous container'){
             steps {
-                echo "list all items"
-                sh "ls -la"
+                sh "docker stop sicei-app"
+                sh "docker rm sicei-app"
             }
         }
-        stage('Build') {
+        stage('Build new image') {
             steps {
-                echo "Building"
+                sh "docker build --tag ${IMAGINE_NAME}:${BUILD_ID} ."
             }
         }
-        stage('Run'){
+        stage('Run new container'){
             steps {
-                echo "Running..."
+                sh "docker run --name sicei-app -p 8081:8080 ${IMAGINE_NAME}:${BUILD_ID}"
             }
         }
     }
