@@ -3,13 +3,14 @@ pipeline {
 
     environment {
         IMAGE_NAME = "sicei"
+        CONTAINER_NAME = "sicei-app"
     }
 
     stages {
         stage('Delete previous container'){
             steps {
-                sh "docker stop sicei-app || true"
-                sh "docker rm sicei-app || true"
+                sh "docker stop ${CONTAINER_NAME} || true"
+                sh "docker rm ${CONTAINER_NAME} || true"
             }
         }
         stage('Build new image') {
@@ -19,7 +20,7 @@ pipeline {
         }
         stage('Run new container'){
             steps {
-                sh "docker run -d --name sicei-app -p 8081:8080 ${IMAGE_NAME}:${BUILD_ID}"
+                sh "docker run -d --name ${CONTAINER_NAME} -p 8081:8080 ${IMAGE_NAME}:${BUILD_ID}"
             }
         }
     }
