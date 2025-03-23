@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Run new container'){
             steps {
-                sh "docker run --name sicei-app -p 8081:8080 ${IMAGE_NAME}:${BUILD_ID}"
+                sh "docker run --name sicei-app -p 8081:8080 ${IMAGE_NAME}:${BUILD_ID} -d"
             }
         }
     }
