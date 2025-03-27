@@ -21,7 +21,6 @@ func main() {
 		{"Juan Gutierrez", "A11001"},
 		{"María López", "A11002"},
 		{"Carlos Ruiz", "A11003"},
-		{"Ana Torres", "A11004"},
 	}
 
 	teachers := []Teacher{
