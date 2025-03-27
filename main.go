@@ -18,7 +18,7 @@ func main() {
 	r := gin.Default()
 
 	students := []Student{
-		{"Juan Pérez", "A11001"},
+		{"Juan Gutierrez", "A11001"},
 		{"María López", "A11002"},
 		{"Carlos Ruiz", "A11003"},
 		{"Ana Torres", "A11004"},
